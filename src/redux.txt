@@ -46,3 +46,26 @@ in una sezione a se stante dedicata esclusivamente a loro.
 In questo modo, posso avere accesso ad essi da qualunque
 componente presente all'interno della mia app con 
 l'aggiunta di qualche riga di codice.
+
+========================== STORE --> GLOBALIZED STATE
+(immagazzina i dati a cui poi accederò dai vari componenti)
+                            ||
+                            ||
+========================= ACTION
+(traduce e descrive quello che intendo fare)
+                            ||
+                            ||
+======================== REDUCER
+(descrive in che modo la mia action trasforma lo state)
+                            ||
+                            ||
+======================== DISPATCH
+(mi consente di eseguire la mia action)
+
+INSTALLAZIONE:
+==> npm i redux react-redux
+
+==> redux devtools for google chrome
+https://github.com/zalmoxisus/redux-devtools-extension
+
+(==> continua su index.js)
