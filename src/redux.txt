@@ -1,0 +1,48 @@
+Immaginando di voler creare un'app che consenta di consultare
+una lista di film, dovrò creare diversi componenti, come ad
+esempio un Search (che servirà ad eseguire la ricerca del
+titolo in questione), una Movie List da cui farò derivare un
+Movie (in cui visualizzare il singolo titolo selezionato) ed
+un Login.
+In che modo potrei passare i diversi dati attraverso questi 
+componenti?
+
+========================== APP 
+                            ||
+                            ||
+======== SEARCH ======= MOVIE LIST ======= LOGIN 
+                            ||
+                            ||
+                          MOVIE
+
+Per passare i dati dal componente Movie List al componente
+Movie, posso avvalermi delle props. Il problema, però,
+è che questi stessi dati non possono essere passati al
+componente Search, dal momento che React scorre in una
+sola direzione (one direction data flow - da genitore a
+figlio).
+In che modo posso risolvere questo problema?
+Una soluzione potrebbe essere quella di ricorrere al
+lifting state up, trasferendo i dati direttamente al
+componente App. Così facendo, infatti, essi diventerebbero
+accessibili da qualsiasi altro componente suo discendente.
+Il problema con questa soluzione è che essa diventa quasi 
+irrealizzabile mano a mano che il suo numero di dati da 
+rendere accessibili aumenta. Inoltre, andrebbe contro il
+principio di compartimentazione dei singoli componenti.
+Non avrebbe alcun senso, infatti, posizionare i dati della
+Movie List in App.
+Quello che Redux fa è consentire di immaganizzare quei dati
+in una sezione a se stante dedicata esclusivamente a loro.
+
+========================== APP                      DATA
+                            ||
+                            ||
+======== SEARCH ======= MOVIE LIST ======= LOGIN 
+                            ||
+                            ||
+                          MOVIE
+
+In questo modo, posso avere accesso ad essi da qualunque
+componente presente all'interno della mia app con 
+l'aggiunta di qualche riga di codice.
