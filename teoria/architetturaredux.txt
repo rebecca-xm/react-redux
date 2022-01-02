@@ -1,0 +1,40 @@
+Redux serve per gestire lo stato di un'applicazione.
+Lo stato di un'applicazione può essere tutto quello che l'utente
+fa all'interno dell'interfaccia.
+In generale, la regola di massima è quella di tenere nello stato 
+di redux quelle informazioni che possono servire a tutta l'applicazione
+e a componenti che sono slegati l'uno dall'altro.
+
+STORE                                           UI
+
+Lo store è il centro di controllo di redux e funge da centrale di 
+smistamento. Esso è costituito da una funzione chiamata reducer,
+che in sostanza è il produttore dello stato di redux. Essa prende
+come parametro state, che non è nient'altro che un oggetto JS
+(lo stato iniziale dell'applicazione).
+
+In che modo dialogano lo store e l'interfaccia utente?
+Quando l'interfaccia vuole modificare lo stato dell'applicazione,
+essa compie il dispatch di un'azione.
+
+STORE                                           UI 
+  ||                                            ||
+  ||<===========================================||
+                   ACTION DISPATCH
+
+Quando lo store riceve questa'azione da parte dell'interfaccia,
+la passa al reducer che decide come modificare lo stato.
+N.B.: in realtà lo stato non viene modificato, viene creata
+una sua copia che viene quindi riportata con le opportune
+modifiche.
+Dopo averlo modificato, l'interfaccia ha la possibilità di
+abbonarsi alle modifiche di stato e quindi di ricevere modifiche
+con la funzione subscribe dello store.
+
+                    NOTIFIES
+  ||===========================================>||
+  ||                                            ||
+STORE                                           UI 
+  ||                                            ||
+  ||<===========================================||
+                   ACTION DISPATCH
